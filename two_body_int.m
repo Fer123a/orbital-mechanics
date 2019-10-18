@@ -7,10 +7,10 @@ pos_init_earth = [149597870691; 0; 0];
                   
 vel_init_earth = [0; 29785; 0];
 
-tinterv = [0, delta_t]; % Intervalo de tempo da simulaÁ„o
+tinterv = [0, delta_t]; % Intervalo de tempo da simula√ß√£o
 xinicial = [pos_init_sun; pos_init_earth; vel_init_sun; vel_init_earth]; % Valor inicial do vetor de estados
 
-% Simula o sistema din‚mico
+% Simula o sistema din√¢mico
 [tsim, xsim] = ode45(@two_bodies_problem, tinterv, xinicial);
 
 figure(1)
