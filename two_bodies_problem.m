@@ -24,15 +24,16 @@ x3_dot = x9;
 x4_dot = x10;
 x5_dot = x11;
 x6_dot = x12;
-x7_dot = 0;
-x8_dot = 0;
-x9_dot = 0;
 
-f = atan2((x4 - x1), (x5 - x2));
+f = atan2((x5 - x2), (x4 - x1));
 r = sqrt((x4 - x1)^2 + (x5 - x2)^2 + (x6 - x3)^2);
 
-x10_dot = -G*(m_1+m_2)*sin(f)/(r^2);
-x11_dot = -G*(m_1+m_2)*cos(f)/(r^2);
+x7_dot = G*m_2*cos(f)/(r^2);
+x8_dot = G*m_2*sin(f)/(r^2);
+x9_dot = 0;
+
+x10_dot = -G*m_1*cos(f)/(r^2);
+x11_dot = -G*m_1*sin(f)/(r^2);
 x12_dot = 0;
 
 % Monta o vetor x ponto
