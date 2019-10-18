@@ -1,4 +1,4 @@
-function x_dot = two_bodies_problem(t, state_vector)
+function x_dot = two_body_problem(t, state_vector)
 
 G = 6.674e-11;
 m_1 = 1.989e30;
