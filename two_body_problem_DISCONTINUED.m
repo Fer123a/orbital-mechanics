@@ -1,36 +1,36 @@
 function x_dot = two_body_problem(~, state_vector, G, m_1, m_2)
 %{
-TWO_BODY_PROBLEM - FunÁ„o utilizada juntamente com um integrador para
-o c·lculo do movimento dos corpos em uma representaÁ„o em espaÁo de 
+TWO_BODY_PROBLEM - Fun√ß√£o utilizada juntamente com um integrador para
+o c√°lculo do movimento dos corpos em uma representa√ß√£o em espa√ßo de 
 estados do problema gravitacional de dois corpos.
 
 Entradas:
-  ~ - input ignorado, placeholder para a vari·vel temporal
+  ~ - input ignorado, placeholder para a vari√°vel temporal
   state_vector - vetor de estados do sistema, contendo, nesta ordem:
-        x1 - posiÁ„o do corpo central no eixo x
-        x2 - posiÁ„o do corpo central no eixo y 
-        x3 - posiÁ„o do corpo central no eixo z
-        x4 - posiÁ„o do corpo de massa menor no eixo x
-        x5 - posiÁ„o do corpo de massa menor no eixo y
-        x6 - posiÁ„o do corpo de massa menor no eixo z
+        x1 - posi√ß√£o do corpo central no eixo x
+        x2 - posi√ß√£o do corpo central no eixo y 
+        x3 - posi√ß√£o do corpo central no eixo z
+        x4 - posi√ß√£o do corpo de massa menor no eixo x
+        x5 - posi√ß√£o do corpo de massa menor no eixo y
+        x6 - posi√ß√£o do corpo de massa menor no eixo z
         x7 - velocidade do corpo central no eixo x
         x8 - velocidade do corpo central no eixo y 
         x9 - velocidade do corpo central no eixo z
         x10 - velocidade do corpo de massa menor no eixo x
         x11 - velocidade do corpo de massa menor no eixo y
         x12 - velocidade do corpo de massa menor no eixo z
-    G [Nm≤/kg≤] - Constante da gravitaÁ„o universal
+    G [Nm¬≤/kg¬≤] - Constante da gravita√ß√£o universal
     m_1 [kg] - Massa do corpo central
-    m_2 [kg] - Massa do corpo secund·rio
+    m_2 [kg] - Massa do corpo secund√°rio
 
-SaÌda:
+Sa√≠da:
   x_dot - vetor de derivadas dos estados do sistema, contendo, nesta ordem:
-        x1_dot - derivada da posiÁ„o do corpo central no eixo x
-        x2_dot - derivada da posiÁ„o do corpo central no eixo y 
-        x3_dot - derivada da posiÁ„o do corpo central no eixo z
-        x4_dot - derivada da posiÁ„o do corpo de massa menor no eixo x
-        x5_dot - derivada da posiÁ„o do corpo de massa menor no eixo y
-        x6_dot - derivada da posiÁ„o do corpo de massa menor no eixo z
+        x1_dot - derivada da posi√ß√£o do corpo central no eixo x
+        x2_dot - derivada da posi√ß√£o do corpo central no eixo y 
+        x3_dot - derivada da posi√ß√£o do corpo central no eixo z
+        x4_dot - derivada da posi√ß√£o do corpo de massa menor no eixo x
+        x5_dot - derivada da posi√ß√£o do corpo de massa menor no eixo y
+        x6_dot - derivada da posi√ß√£o do corpo de massa menor no eixo z
         x7_dot - derivada da velocidade do corpo central no eixo x
         x8_dot - derivada da velocidade do corpo central no eixo y 
         x9_dot - derivada da velocidade do corpo central no eixo z
@@ -53,7 +53,7 @@ x10 = state_vector(10);
 x11 = state_vector(11);
 x12 = state_vector(12);
 
-%% Calcula as derivadas das vari·veis de posiÁ„o
+%% Calcula as derivadas das vari√°veis de posi√ß√£o
 x1_dot = x7;
 x2_dot = x8;
 x3_dot = x9;
@@ -64,10 +64,10 @@ x6_dot = x12;
 % f [rad] - anomalia verdadeira
 f = atan2((x5 - x2), (x4 - x1));
 
-% r [m] - dist‚ncia entre os dois corpos
+% r [m] - dist√¢ncia entre os dois corpos
 r = sqrt((x4 - x1)^2 + (x5 - x2)^2 + (x6 - x3)^2);
 
-%% Calcula as derivadas das vari·veis de velocidade
+%% Calcula as derivadas das vari√°veis de velocidade
 x7_dot = G*m_2*cos(f)/(r^2);
 x8_dot = G*m_2*sin(f)/(r^2);
 x9_dot = 0;
